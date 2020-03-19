@@ -5,16 +5,43 @@
 <?php
 
 class FootballTeam{
-    public $name;
-    public $nbTitres;
+    const text = "Nombre d'équipes: ";
+    static $nbTeams = 0;
+    private $name;
+    private $nbTitres;
+
+    public function getName(){return $this->name;}
+    public function getNbTitres(){return $this->nbTitres;}
+    public function setName($name){$this->name = $name;}
+    public function setNbTitres($nbTitres){$this->nbTitres = $nbTitres;}
+
     function display(){
         echo "L'équipe ". $this->name ." a ". $this->nbTitres ." titres.";
     }
+
+    static function getNbTeams(){
+        echo FootballTeam::text.FootballTeam::$nbTeams;
+    }
+
+    function __construct($nom, $titres){
+        $name = $nom;
+        $nbTitres = $titres;
+        FootballTeam::$nbTeams++;
+    }
+    function __destruct()
+    {
+        echo "Destructor";
+        FootballTeam::$nbTeams--;
+    }
 }
 
-$Canaris = new FootballTeam();
-$Canaris->name = "Les Canaris de la Beaujoire";
-$Canaris->nbTitres = 666;
-$Canaris->display();
+$equipe1 = new FootballTeam("Unknown", 0);
+$equipe1->setName("Les Canaris de la Beaujoire");
+$equipe1->setNbTitres(666);
+$equipe1->display();
+$equipe2 = new FootballTeam("Numéro39", 104);
+$equipe3 = new FootballTeam("Papillopérative", 999);
+$equipe4 = new FootballTeam("Simic Flash", 0);
+FootballTeam::getNbTeams();
 ?>
 
