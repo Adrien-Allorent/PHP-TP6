@@ -7,8 +7,8 @@ class Formulaire{
     public function addTextZone($text = ""){
         echo "$text"."<input type='text'/><br>";
     }
-    public function addButton(){
-        echo"<input type='submit' value='Envoi'/>";
+    public function addButton($text = ""){
+        echo"<input type='submit' value='".$text."'/>";
     }
     public function getForm(){
         echo "</form>";
