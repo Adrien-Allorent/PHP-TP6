@@ -5,7 +5,7 @@ class Formulaire{
         echo "<form action='".$nom."' method='".$methode."'>";
     }
     public function addTextZone($text = ""){
-        echo "$text"."<input type='text'/><br>";
+        echo "$text"."<input name='".$text."' type='text'/><br>";
     }
     public function addButton($text = ""){
         echo"<input type='submit' value='".$text."'/>";
@@ -14,6 +14,7 @@ class Formulaire{
         echo "</form>";
     }
 }
+
 
 ?>
 
